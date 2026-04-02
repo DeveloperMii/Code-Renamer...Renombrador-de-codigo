@@ -1,4 +1,4 @@
-#Librerias
+#Libraries
 from pathlib import Path
 
 #Variables
@@ -15,15 +15,15 @@ How_manyS : str = "000"
 How_manyI : int = None
 Renameable : bool = True
 
-#Validacion de ruta
+#Route validation
 while True:
-    Route = input("En que ruta carpeta estan los archivos \n Si es la misma en la que esta este script pulse enter \n :  ")
+    Route = input("In which folder are the files located? \nIf it's the same folder as this script, press Enter \n :  ")
     if Route != "" and Route != ".":
         Route = __file__
     if Path(Route).exists():
-        print("La ruta escogida es: " + Route)
+        print("The chosen route is: " + Route)
         while True:
-            match input("Si no esta seguro presione 1 \n En caso de estar seguro presione 2 \n : "):
+            match input("If you're not sure, press 1 \nIf you're sure, press 2 \n : "):
                 case "1":
                     Option = False
                     break
@@ -31,22 +31,22 @@ while True:
                     Option = True
                     break
                 case _:
-                    print("Ingrese un valor valido")   
+                    print("Enter a valid value")   
     else:
-        print("La ruta es invalida")
+        print("The route is invalid")
     if Option:
         break
 
-#Cantidad de digitos del codigo
+#Number of digits in the code
 while True:
-    CDigitS = input("¿De cuantos digitos es el codigo?: ")
+    CDigitS = input("How many digits are in the code?: ")
     if CDigitS.isdigit():
         CDigitI = int(CDigitS)
         break
     else:
-        print("Valor invalido \nIngrese uno nuevo")
+        print("Invalid value \nPlease enter a new one")
 
-#Empaquetado de archivos
+#File packaging
 for i in Path(Route).iterdir():
     Files.append(i)
     for j in range(0,CDigitI):
@@ -55,28 +55,28 @@ for i in Path(Route).iterdir():
                 Files.remove(i)
                 break
 
-#Desde donde, Hasta donde y en cuanto se espera cambiar
+#From where, to where, and when the change is expected
 while FromI == None and UntillI == None and How_manyI == None:
     while True:
         while FromI == None:
-            FromS = input("Ingrese desde que numero quiere iniciar: ")
+            FromS = input("Enter the number you want to start with: ")
             if FromS.isdigit:
                 FromI = int(FromS)
             else:
-                print("Valor invalido \nIngrese uno nuevo")
+                print("Invalid value \nPlease enter a new one")
         while UntillI == None:
-            UntillS = input("Ingrese hasta que numero quiere llegar: ")
+            UntillS = input("Enter the number you want to dial: ")
             if UntillS.isdigit():
                 UntillI = int(UntillS)
             else:
-                print("Valor invalido \nIngrese uno nuevo")
+                print("Invalid value \nPlease enter a new one")
         if FromI < UntillI:
             break
         else:
             FromI ,UntillI = UntillI, FromI
             break
     while How_manyI == None:
-        How_manyS = input("¿En cuanto lo quiere aumentar o restar?: ")
+        How_manyS = input("By how much do you want to increase or decrease it?: ")
         if How_manyS[0] == "-":
             if How_manyS[1:].isdigit():
                 How_manyI = int(How_manyS[1:]) * -1
@@ -84,7 +84,7 @@ while FromI == None and UntillI == None and How_manyI == None:
             if How_manyS.isdigit():
                 How_manyI = int(How_manyS)
             else:
-                print("Valor invalido \nIngrese uno nuevo")
+                print("Invalid value \nPlease enter a new one")
 
 #Funcion de renombrar
 def Renombrador(i : int):
@@ -93,7 +93,7 @@ def Renombrador(i : int):
         for j in Files:
             if int(Path(j).stem[:CDigitI]) == int(Files[i].stem[:CDigitI]) + How_manyI:
                 Renameable = False
-                print(str(Files[i].stem) + " se omitio porque " + str(j.stem) + " existe")
+                print(str(Files[i].stem) + " It was omitted because " + str(j.stem) + " exists")
                 break
         if Renameable and Path(Files[i]).exists():
             print(str(Files[i].stem) + " -> " + str(int(Files[i].stem[:CDigitI]) + How_manyI).zfill(CDigitI) + str(Files[i].name[CDigitI:]))
@@ -108,6 +108,6 @@ elif How_manyI > 0:
     for i in range(len(Files) - 1, -1, -1):
         Renombrador(i)
 else:
-    print("No se hizo nada")
+    print("Nothing was done")
 
-input("Proceso terminado \nPulse enter para salir")
+input("Process complete \nPress Enter to exit")
