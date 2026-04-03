@@ -37,7 +37,7 @@
 
 ### Description
 
-This Python script was originally created as a supplement to the “File Mover by Name,” but it is not required for its use; it is merely a recommendation.
+This Python script was originally created as a supplement to the [File Mover by Name](https://github.com/DeveloperMii/File-Mover-by-Name...Movedor-de-archivos-por-nombre), but it is not required for its use; it is merely a recommendation.
 You do not need to pass the data to it via the terminal, as it does not support that; instead, it requests the information incrementally. In total, it requires the location, range, and modification type.
 Its main purpose is to work alongside that program to help manage large numbers of files, a task that would be quite tedious to do manually.
 This program searches for a numeric code of a length specified by the user and modifies the number by adding or subtracting.
@@ -122,7 +122,7 @@ Current version: 1.0
 
 ### Descripcion
 
-Este script de Python que nació como un complemento para el "Movedor de archivos por nombre" pero no es necesario para su uso solo es una recomendación.
+Este script de Python que nació como un complemento para el [Movedor de archivos por nombre](https://github.com/DeveloperMii/File-Mover-by-Name...Movedor-de-archivos-por-nombre) pero no es necesario para su uso solo es una recomendación.
 No es necesario pasarle los datos por la terminal, ya que no los soporta el los va pidiendo poco a poco en total son ubicación, rango, y tipo de modificación.
 Su utilidad principal está ligada a aquel programa para ayudar al control de cantidades grandes de archivos donde de manera manual sería bastante tediosa.
 Este programa busca un código numérico de longitud especificada por el usuario y modifica el número sumando o restando.
