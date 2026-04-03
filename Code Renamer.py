@@ -18,8 +18,8 @@ Renameable : bool = True
 #Route validation
 while True:
     Route = input("In which folder are the files located? \nIf it's the same folder as this script, press Enter \n :  ")
-    if Route != "" and Route != ".":
-        Route = __file__
+    if Route == "" or Route == ".":
+        Route = str(Path(__file__).parent)
     if Path(Route).exists():
         print("The chosen route is: " + Route)
         while True:
